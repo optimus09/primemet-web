@@ -1,0 +1,48 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { createClient } from "@/lib/supabase/server";
+
+export async function toggleSetting(key: string, value: boolean): Promise<{ error?: string }> {
+  const supabase = await createClient();
+
+  const { error } = await supabase
+    .from("site_settings")
+    .upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: "key" });
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/", "layout");
+  return {};
+}
+
+export async function toggleCategory(category: string, isVisible: boolean): Promise<{ error?: string }> {
+  const supabase = await createClient();
+
+  const { error } = await supabase
+    .from("category_settings")
+    .upsert({ category, is_visible: isVisible, updated_at: new Date().toISOString() }, { onConflict: "category" });
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/", "layout");
+  return {};
+}
+
+export async function updateScrapRate(
+  rateId: string,
+  marketPrice: number,
+  ourPrice: number
+): Promise<{ error?: string }> {
+  const supabase = await createClient();
+
+  const { error } = await supabase
+    .from("scrap_rates")
+    .update({ market_price: marketPrice, our_price: ourPrice, updated_at: new Date().toISOString() })
+    .eq("id", rateId);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/", "layout");
+  return {};
+}

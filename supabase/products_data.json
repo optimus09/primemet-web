@@ -1,0 +1,704 @@
+[
+  {
+    "sku": "HW-001",
+    "name": "ALLENKEY 6MM ",
+    "category": "ALLENKEY",
+    "unit_price": 19.0,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-002",
+    "name": "ALLENKEY 10 MM ",
+    "category": "ALLENKEY",
+    "unit_price": 9.5,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-003",
+    "name": "ALLENKEY 8MM",
+    "category": "ALLENKEY",
+    "unit_price": 12.5,
+    "unit": "Pcs",
+    "stock": 300,
+    "active": true
+  },
+  {
+    "sku": "HW-004",
+    "name": "ALLENKEY 6MM",
+    "category": "ALLENKEY",
+    "unit_price": 14.0,
+    "unit": "Pcs",
+    "stock": 200,
+    "active": true
+  },
+  {
+    "sku": "HW-005",
+    "name": "ALLENKEY 5MM",
+    "category": "ALLENKEY",
+    "unit_price": 18.0,
+    "unit": "Pcs",
+    "stock": 200,
+    "active": true
+  },
+  {
+    "sku": "HW-006",
+    "name": "BDS CUTTER 14X35mm",
+    "category": "BDS CUTTER",
+    "unit_price": 2.0,
+    "unit": "Pcs",
+    "stock": 1000,
+    "active": true
+  },
+  {
+    "sku": "HW-007",
+    "name": "BDS CUTTER 14X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 3.0,
+    "unit": "Pcs",
+    "stock": 1000,
+    "active": true
+  },
+  {
+    "sku": "HW-008",
+    "name": "BDS CUTTER 16X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 4.2,
+    "unit": "Pcs",
+    "stock": 1000,
+    "active": true
+  },
+  {
+    "sku": "HW-009",
+    "name": "BDS CUTTER 18X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 6.0,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-010",
+    "name": "BDS CUTTER 20X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 5.5,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-011",
+    "name": "BDS CUTTER 22X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 6.5,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-012",
+    "name": "BDS CUTTER 23X30mm",
+    "category": "BDS CUTTER",
+    "unit_price": 9.0,
+    "unit": "Pcs",
+    "stock": 500,
+    "active": true
+  },
+  {
+    "sku": "HW-013",
+    "name": "BDS CUTTER 26X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 13.0,
+    "unit": "Pcs",
+    "stock": 300,
+    "active": true
+  },
+  {
+    "sku": "HW-014",
+    "name": "BDS CUTTER 28X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 1.8,
+    "unit": "Pcs",
+    "stock": 1500,
+    "active": true
+  },
+  {
+    "sku": "HW-015",
+    "name": "BDS CUTTER 30X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 2.5,
+    "unit": "Pcs",
+    "stock": 1500,
+    "active": true
+  },
+  {
+    "sku": "HW-016",
+    "name": "BDS CUTTER 33X50mm",
+    "category": "BDS CUTTER",
+    "unit_price": 0.8,
+    "unit": "Pcs",
+    "stock": 2000,
+    "active": true
+  },
+  {
+    "sku": "HW-017",
+    "name": "BDS CUTTER 35 X 50",
+    "category": "BDS CUTTER",
+    "unit_price": 1.1,
+    "unit": "Pcs",
+    "stock": 2000,
+    "active": true
+  },
+  {
+    "sku": "HW-018",
+    "name": "BDS CUTTER Pin-6.35x106mm",
+    "category": "BDS CUTTER",
+    "unit_price": 1.3,
+    "unit": "Pcs",
+    "stock": 2000,
+    "active": true
+  },
+  {
+    "sku": "HW-019",
+    "name": "CARBON BRUSH BOSCH 4\"",
+    "category": "OTHER",
+    "unit_price": 1.8,
+    "unit": "Pcs",
+    "stock": 2000,
+    "active": true
+  },
+  {
+    "sku": "HW-020",
+    "name": "CARBON BRUSH BOSCH 5\"",
+    "category": "OTHER",
+    "unit_price": 20.0,
+    "unit": "Pcs",
+    "stock": 200,
+    "active": true
+  },
+  {
+    "sku": "HW-021",
+    "name": "CARBON BRUSH DCK+YURI 5 INCH",
+    "category": "OTHER",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 200,
+    "active": true
+  },
+  {
+    "sku": "HW-022",
+    "name": "CARBON BRUSH DYK 4 INCH",
+    "category": "OTHER",
+    "unit_price": 75.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-023",
+    "name": "CONTACT TIP 1.2mm  for MIG TORCH",
+    "category": "OTHER",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-024",
+    "name": "COPPER LUG",
+    "category": "OTHER",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-025",
+    "name": "GAS CUTTING TORCH",
+    "category": "CUTTING TORCH",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-026",
+    "name": "CUTTING WHEEL 14 INCH",
+    "category": "CUTTING WHEEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-027",
+    "name": "CUTTING WHEEL 4 INCH",
+    "category": "CUTTING WHEEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-028",
+    "name": "CUTTING WHEEL 5 INCH",
+    "category": "CUTTING WHEEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-029",
+    "name": "CUTTING WHEEL 7 INCH",
+    "category": "CUTTING WHEEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-030",
+    "name": "DRILL 4.5MM ",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-031",
+    "name": "DRILL 5 MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-032",
+    "name": "DRILL 6 MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-033",
+    "name": "DRILL 4.2 MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-034",
+    "name": "DRILL 10.2MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-035",
+    "name": "DRILL 10MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-036",
+    "name": "DRILL 11 MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-037",
+    "name": "DRILL 13MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-038",
+    "name": "DRILL 14MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-039",
+    "name": "DRILL 33 MM ",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-040",
+    "name": "DRILL 32 MM ",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-041",
+    "name": "DRILL 5.2MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-042",
+    "name": "DRILL 6.8MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-043",
+    "name": "DRILL 7MM",
+    "category": "DRILL BIT",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-044",
+    "name": "DRILL 8.5MM",
+    "category": "DRILL BIT",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-045",
+    "name": "FLAP DISC 4 INCH",
+    "category": "FLAP DISC",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-046",
+    "name": "FLAP DISC 5 INCH",
+    "category": "FLAP DISC",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-047",
+    "name": "GAS CUTTING NOZZEL - 1/16",
+    "category": "CUTTING NOZZEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-048",
+    "name": "GAS CUTTING NOZZEL - 1/32",
+    "category": "CUTTING NOZZEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-049",
+    "name": "GAS CUTTING NOZZEL - 3/64",
+    "category": "CUTTING NOZZEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-050",
+    "name": "GAS CUTTING NOZZEL - 5/64",
+    "category": "CUTTING NOZZEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-051",
+    "name": "4\" BOSCH GRINDER MACHINE ARMATURE",
+    "category": "M/C",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-052",
+    "name": "4\" GRINDING M/C (DCK)",
+    "category": "M/C",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-053",
+    "name": "4\" GRINDING M/C DONGCHENG",
+    "category": "M/C",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-054",
+    "name": "4\" GRINDING M/C\u00a0900W BOSCH",
+    "category": "M/C",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-055",
+    "name": "5\" BOSCH GRINDER MACHINE ARMATURE",
+    "category": "M/C",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-056",
+    "name": "5\" DCK GRINDER MACHINE FILED COIL",
+    "category": "M/C",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-057",
+    "name": "5\" DCK GRINDER_Yuri MACHINE ARMATURE",
+    "category": "M/C",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-058",
+    "name": "5\" GRINDER HEAD",
+    "category": "GRINDING WHEEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-059",
+    "name": "5\" GRINDER HOLDER",
+    "category": "GRINDING WHEEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-060",
+    "name": "5\" GRINDING M/C (DCK)",
+    "category": "M/C",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-061",
+    "name": "5\" GRINDING M/C\u00a01100-1400W Bosch",
+    "category": "M/C",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-062",
+    "name": "5\" GRINDING M/C 1200W HIKOKI",
+    "category": "M/C",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-063",
+    "name": "GRINDING WHEEL 4 INCH",
+    "category": "GRINDING WHEEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-064",
+    "name": "GRINDING WHEEL 5 INCH",
+    "category": "GRINDING WHEEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-065",
+    "name": "GRINDING WHEEL 7 INCH",
+    "category": "GRINDING WHEEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-066",
+    "name": "MIG MACHINE FEED ROLLER",
+    "category": "OTHER",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-067",
+    "name": "MIG MACHINE FEEDER ROLLER",
+    "category": "OTHER",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-068",
+    "name": "MIG LINER 2.5 Mtr",
+    "category": "OTHER",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-069",
+    "name": "MIG LINER 5 Mtr",
+    "category": "OTHER",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-070",
+    "name": "MIG WELDING TORCH PANASONIC 350 Amp",
+    "category": "MIG WELDING",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-071",
+    "name": "MIG WELDING WIRE 0.8MM",
+    "category": "MIG WELDING",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-072",
+    "name": "MIG WELDING WIRE PHONIX 1.2MM",
+    "category": "MIG WELDING",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-073",
+    "name": "MIG WELDING WIRE GE 1.2MM",
+    "category": "MIG WELDING",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-074",
+    "name": "WELDING HOLDER 1000Amp ARC",
+    "category": "WELDING HOLDER",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-075",
+    "name": "WELDING NOZZEL COPPER",
+    "category": "NOZZEL",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-076",
+    "name": "WELDING NOZZEL Silver 36KD",
+    "category": "NOZZEL",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  },
+  {
+    "sku": "HW-077",
+    "name": "WELDING ROD 3.15MM",
+    "category": "WELDING ROD",
+    "unit_price": 110.0,
+    "unit": "Pcs",
+    "stock": 100,
+    "active": true
+  },
+  {
+    "sku": "HW-078",
+    "name": "WELDING ROD SS309 3.15MM",
+    "category": "WELDING ROD",
+    "unit_price": 30.0,
+    "unit": "Pcs",
+    "stock": 150,
+    "active": true
+  }
+]

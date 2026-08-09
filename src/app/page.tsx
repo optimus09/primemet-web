@@ -1,0 +1,378 @@
+import Link from "next/link";
+import { getSiteSettings } from "@/lib/settings";
+
+const tickerItems = [
+  "MS TURNINGS: 42 MT LIFTED TODAY",
+  "HMS 1 & 2: DISPATCHED TO RENEWAL MILL",
+  "ALUMINIUM SCRAP: LOT GRADED [READY]",
+  "COPPER ARMATURE: WEIGHBRIDGE CLEARED",
+  "SS 304 OFFCUTS: PICKUP SCHEDULED",
+  "WELDING RODS & SPARES: SAME-WEEK DISPATCH",
+];
+
+const services = [
+  {
+    title: "Scrap Procurement",
+    description:
+      "We buy metal wastage directly from manufacturing facilities — graded, weighed and lifted on a schedule that suits your production cycle.",
+    points: ["Plant-side grading & weighment", "Scheduled lot pickups", "Transparent rate contracts"],
+    icon: (
+      <path d="M8 30 L8 16 L20 16 L20 30 M20 20 L30 20 L36 26 L36 30 M8 30 L36 30 M13 34 a3 3 0 1 0 0.1 0 M31 34 a3 3 0 1 0 0.1 0" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+  {
+    title: "Mill & Foundry Supply",
+    description:
+      "Consistent, segregated feedstock delivered to renewal mills and foundries with documentation and dispatch tracking end to end.",
+    points: ["Segregated ferrous & non-ferrous", "Weighbridge-verified dispatch", "Pan-India transport lanes"],
+    icon: (
+      <path d="M8 34 L8 18 L16 12 L24 18 L24 34 M32 34 L32 22 L40 22 L40 34 M4 34 L44 34 M16 34 L16 24 M32 34 L32 28" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+  {
+    title: "Consumables & Spares",
+    description:
+      "Welding rods, industrial hardware and machine spares supplied to keep maintenance schedules and production lines running.",
+    points: ["Welding rods & electrodes", "Industrial hardware & fasteners", "Machine spares on demand"],
+    icon: (
+      <path d="M14 14 L22 22 M26 10 L38 22 L34 26 L22 14 Z M18 18 L10 26 Q8 30 12 34 Q16 38 20 34 L22 32" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+];
+
+const stats = [
+  { value: "250+", label: "Manufacturing plants served" },
+  { value: "12,000 MT", label: "Scrap handled every month" },
+  { value: "98%", label: "On-time lot lifting" },
+];
+
+const materials = [
+  {
+    name: "MS Turnings",
+    color: "#0d6e5e",
+    icon: <path d="M14 34 Q14 24 24 24 Q34 24 34 14 M34 14 L28 14 M34 14 L34 20" strokeLinecap="round" strokeLinejoin="round" />,
+  },
+  {
+    name: "HMS 1 & 2",
+    color: "#0f3d5c",
+    icon: <><rect x="12" y="18" width="12" height="12" rx="1.5" /><rect x="26" y="12" width="12" height="12" rx="1.5" /><rect x="20" y="26" width="12" height="12" rx="1.5" /></>,
+  },
+  {
+    name: "Aluminium",
+    color: "#15803d",
+    icon: <rect x="10" y="18" width="28" height="12" rx="3" strokeLinejoin="round" />,
+  },
+  {
+    name: "Copper",
+    color: "#7c6a1f",
+    icon: <path d="M12 24 Q18 14 24 24 Q30 34 36 24" strokeLinecap="round" />,
+  },
+  {
+    name: "SS 304 / 316",
+    color: "#0d6e5e",
+    icon: <><rect x="10" y="14" width="24" height="6" rx="1" /><rect x="10" y="21" width="24" height="6" rx="1" /><rect x="10" y="28" width="24" height="6" rx="1" /></>,
+  },
+  {
+    name: "Brass & Alloys",
+    color: "#0f3d5c",
+    icon: <><circle cx="24" cy="24" r="10" /><circle cx="24" cy="24" r="3.5" /><path d="M24 10 L24 14 M24 34 L24 38 M10 24 L14 24 M34 24 L38 24" strokeLinecap="round" /></>,
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Submit a request",
+    description: "Tell us what scrap you have or which spares you need, right from the website.",
+  },
+  {
+    step: "02",
+    title: "We grade & quote",
+    description: "Our team reviews it, confirms material grade or stock, and follows up with pricing.",
+  },
+  {
+    step: "03",
+    title: "Pickup or dispatch",
+    description: "Scrap is lifted from your plant, or your spares order is packed and shipped.",
+  },
+  {
+    step: "04",
+    title: "Settle & repeat",
+    description: "Payment or invoice settled, documentation shared — ready for the next cycle.",
+  },
+];
+
+export default async function Home() {
+  const settings = await getSiteSettings();
+  return (
+    <div>
+      <section className="relative overflow-hidden border-b border-card-border">
+        <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_800px_500px_at_70%_0%,black,transparent)]" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            background:
+              "radial-gradient(700px circle at 85% 10%, rgba(21,128,61,0.10), transparent 60%), radial-gradient(500px circle at 0% 100%, rgba(15,61,92,0.08), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div className="fade-up">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-highlight/40 bg-emerald-highlight/10 px-3 py-1 text-xs font-medium text-emerald-highlight">
+              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+              INDIA · B2B SCRAP LOGISTICS &amp; INDUSTRIAL SUPPLY
+            </span>
+            <h1 className="mt-6 max-w-xl text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
+              Powering India&apos;s Industrial Supply Chain
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-muted">
+              We buy metal wastage from manufacturing plants, supply graded scrap to renewal
+              mills and foundries, and keep your shop floor stocked with welding rods, hardware
+              and machine spares.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/sell-scrap"
+                className="rounded-md border border-gold bg-teal-active px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-deep"
+              >
+                Sell Your Industrial Scrap
+              </Link>
+              <Link
+                href="/catalog"
+                className="rounded-md border border-charcoal px-6 py-3 text-sm font-semibold text-foreground transition hover:border-emerald-highlight"
+              >
+                Order Spare Parts &amp; Consumables
+              </Link>
+            </div>
+            {settings.enable_bulk_pricing && (
+              <div className="mt-6 flex flex-wrap gap-4 text-xs text-muted">
+                <Link href="/bulk-quote" className="mono underline decoration-dotted underline-offset-4 hover:text-emerald-highlight">
+                  Buying in bulk? Request a custom price →
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <div className="relative mx-auto hidden aspect-square w-full max-w-md lg:block">
+            <svg viewBox="0 0 400 400" className="h-full w-full">
+              <circle cx="200" cy="200" r="170" fill="none" stroke="var(--card-border)" strokeWidth="1.5" />
+              <circle cx="200" cy="200" r="130" fill="none" stroke="var(--card-border)" strokeWidth="1.5" strokeDasharray="4 6" />
+              <g transform="translate(200,200)">
+                <path
+                  d="M0 -90 L18 -60 L-18 -60 Z M0 90 L18 60 L-18 60 Z M-90 0 L-60 18 L-60 -18 Z M90 0 L60 18 L60 -18 Z"
+                  fill="var(--emerald-highlight)"
+                  opacity="0.25"
+                />
+                <circle r="62" fill="none" stroke="var(--teal-active)" strokeWidth="3" />
+                <circle r="40" fill="none" stroke="var(--gold)" strokeWidth="2" />
+                <circle r="8" fill="var(--emerald-highlight)" />
+                <g stroke="var(--teal-active)" strokeWidth="3" strokeLinecap="round">
+                  <line x1="0" y1="-62" x2="0" y2="-78" />
+                  <line x1="0" y1="62" x2="0" y2="78" />
+                  <line x1="-62" y1="0" x2="-78" y2="0" />
+                  <line x1="62" y1="0" x2="78" y2="0" />
+                  <line x1="-44" y1="-44" x2="-55" y2="-55" />
+                  <line x1="44" y1="-44" x2="55" y2="-55" />
+                  <line x1="-44" y1="44" x2="-55" y2="55" />
+                  <line x1="44" y1="44" x2="55" y2="55" />
+                </g>
+              </g>
+              <rect x="60" y="300" width="60" height="40" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
+              <rect x="280" y="60" width="50" height="34" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
+            </svg>
+
+            <div className="glass-card absolute -left-4 top-6 w-44 p-3">
+              <div className="flex items-center gap-1.5">
+                <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+                <span className="mono text-[9px] uppercase tracking-wider text-muted">Live Today</span>
+              </div>
+              <div className="mono mt-1 text-lg font-bold text-foreground">42.3 MT</div>
+              <div className="text-[10px] text-muted">Scrap lifted so far</div>
+            </div>
+
+            <div className="glass-card absolute -bottom-2 right-0 w-48 p-3">
+              <div className="mono text-[9px] uppercase tracking-wider text-muted">Dispatch Status</div>
+              <div className="mt-1.5 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+                <span className="text-xs text-foreground">HMS 1&amp;2 → Renewal Mill</span>
+              </div>
+              <div className="mt-1 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="text-xs text-foreground">Spares → 3 orders packed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="overflow-hidden border-b border-card-border bg-surface py-3">
+        <div className="ticker-track flex w-max gap-10 whitespace-nowrap">
+          {[...tickerItems, ...tickerItems].map((item, i) => (
+            <span key={i} className="mono text-xs text-emerald-highlight">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+          Three services, one industrial supply chain
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted">
+          From lifting scrap off your shop floor to putting spares back on it — Primemet
+          closes the loop.
+        </p>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="group glass-card relative overflow-hidden p-6 transition hover:-translate-y-1 hover:border-teal-active hover:shadow-lg"
+            >
+              <div className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-active via-emerald-highlight to-gold transition-transform duration-300 group-hover:scale-x-100" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-teal-active/10 transition group-hover:bg-teal-active/20">
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--teal-active)" strokeWidth="2" className="h-7 w-7">
+                  {service.icon}
+                </svg>
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">{service.title}</h3>
+              <p className="mt-3 text-sm text-muted">{service.description}</p>
+              <ul className="mt-4 space-y-1.5">
+                {service.points.map((point) => (
+                  <li key={point} className="mono text-xs text-emerald-highlight">
+                    /{point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="dot-grid relative border-y border-card-border bg-surface">
+        <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
+          <span className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted">
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+            Live operational snapshot
+          </span>
+        </div>
+        <div className="relative mx-auto grid max-w-7xl gap-6 px-4 pb-16 pt-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+          {stats.map((stat) => (
+            <div key={stat.label} className="glass-card px-6 py-5 text-center">
+              <div className="font-heading mono text-4xl font-bold text-gold">{stat.value}</div>
+              <div className="mt-2 text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {(settings.enable_bulk_pricing || settings.enable_subscriptions) && (
+        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            {settings.enable_bulk_pricing && (
+              <div className="glass-card overflow-hidden p-8">
+                <span className="mono text-xs uppercase tracking-wider text-gold">Buying in volume?</span>
+                <h3 className="mt-2 text-xl font-bold text-foreground">Get a custom bulk price</h3>
+                <p className="mt-3 text-sm text-muted">
+                  Ordering spares or consumables at scale? Tell us what you need and how much —
+                  we&apos;ll work out a special rate for your business.
+                </p>
+                <Link
+                  href="/bulk-quote"
+                  className="mt-5 inline-block rounded-md border border-gold bg-teal-active px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-deep"
+                >
+                  Request Bulk Pricing
+                </Link>
+              </div>
+            )}
+            {settings.enable_subscriptions && (
+              <div className="glass-card overflow-hidden p-8">
+                <span className="mono text-xs uppercase tracking-wider text-gold">Recurring scrap volumes?</span>
+                <h3 className="mt-2 text-xl font-bold text-foreground">Set up a pickup subscription</h3>
+                <p className="mt-3 text-sm text-muted">
+                  Weekly, twice-monthly or monthly scrap pickups on a fixed schedule — with
+                  preferred rates for committed volume.
+                </p>
+                <Link
+                  href="/sell-scrap"
+                  className="mt-5 inline-block rounded-md border border-charcoal px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-emerald-highlight"
+                >
+                  Set Up a Subscription
+                </Link>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+          Materials we buy, grade and supply
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted">
+          Six core scrap streams, graded and handled to spec before they leave your plant.
+        </p>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {materials.map((material) => (
+            <div
+              key={material.name}
+              className="group glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div
+                className="flex aspect-square items-center justify-center transition group-hover:scale-105"
+                style={{
+                  background: `linear-gradient(155deg, ${material.color}22, ${material.color}0a)`,
+                }}
+              >
+                <svg viewBox="0 0 48 48" fill="none" stroke={material.color} strokeWidth="2" className="h-14 w-14">
+                  {material.icon}
+                </svg>
+              </div>
+              <div className="p-3 text-center">
+                <span className="mono text-xs font-medium text-foreground">{material.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-card-border bg-surface">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">How it works</h2>
+          <p className="mt-3 max-w-2xl text-muted">
+            Four steps from your shop floor back to your shop floor.
+          </p>
+          <div className="relative mt-12 grid gap-8 md:grid-cols-4">
+            <div className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-card-border to-transparent md:block" />
+            {processSteps.map((item) => (
+              <div key={item.step} className="relative">
+                <div className="font-heading mono relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-teal-active bg-background text-sm font-bold text-teal-active">
+                  {item.step}
+                </div>
+                <h3 className="mt-4 text-base font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-card-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+            Ready to get started?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            Create your account to request a scrap pickup or order spares — track every
+            request from submission to dispatch.
+          </p>
+          <Link
+            href="/signup"
+            className="mt-8 inline-block rounded-md border border-gold bg-teal-active px-8 py-3 text-sm font-semibold text-white transition hover:bg-emerald-deep"
+          >
+            Create Your Account
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
