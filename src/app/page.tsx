@@ -176,27 +176,6 @@ export default async function Home() {
               <rect x="60" y="300" width="60" height="40" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
               <rect x="280" y="60" width="50" height="34" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
             </svg>
-
-            <div className="glass-card absolute -left-4 top-6 w-44 p-3">
-              <div className="flex items-center gap-1.5">
-                <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
-                <span className="mono text-[9px] uppercase tracking-wider text-muted">Live Today</span>
-              </div>
-              <div className="mono mt-1 text-lg font-bold text-foreground">42.3 MT</div>
-              <div className="text-[10px] text-muted">Scrap lifted so far</div>
-            </div>
-
-            <div className="glass-card absolute -bottom-2 right-0 w-48 p-3">
-              <div className="mono text-[9px] uppercase tracking-wider text-muted">Dispatch Status</div>
-              <div className="mt-1.5 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
-                <span className="text-xs text-foreground">HMS 1&amp;2 → Renewal Mill</span>
-              </div>
-              <div className="mt-1 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="text-xs text-foreground">Spares → 3 orders packed</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
