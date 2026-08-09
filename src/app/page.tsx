@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getSiteSettings } from "@/lib/settings";
+import { createClient } from "@/lib/supabase/server";
 
 const tickerItems = [
   "MS TURNINGS: 42 MT LIFTED TODAY",
@@ -38,12 +39,6 @@ const services = [
       <path d="M14 14 L22 22 M26 10 L38 22 L34 26 L22 14 Z M18 18 L10 26 Q8 30 12 34 Q16 38 20 34 L22 32" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
-];
-
-const stats = [
-  { value: "250+", label: "Manufacturing plants served" },
-  { value: "12,000 MT", label: "Scrap handled every month" },
-  { value: "98%", label: "On-time lot lifting" },
 ];
 
 const materials = [
@@ -104,6 +99,8 @@ const processSteps = [
 
 export default async function Home() {
   const settings = await getSiteSettings();
+  const supabase = await createClient();
+  const { data: stats } = await supabase.from("homepage_stats").select("*").order("sort_order");
   return (
     <div>
       <section className="relative overflow-hidden border-b border-card-border">
@@ -248,22 +245,24 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="dot-grid relative border-y border-card-border bg-surface">
-        <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
-          <span className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted">
-            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
-            Live operational snapshot
-          </span>
-        </div>
-        <div className="relative mx-auto grid max-w-7xl gap-6 px-4 pb-16 pt-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-          {stats.map((stat) => (
-            <div key={stat.label} className="glass-card px-6 py-5 text-center">
-              <div className="font-heading mono text-4xl font-bold text-gold">{stat.value}</div>
-              <div className="mt-2 text-sm text-muted">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {settings.show_stats && stats && stats.length > 0 && (
+        <section className="dot-grid relative border-y border-card-border bg-surface">
+          <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
+            <span className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted">
+              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+              Live operational snapshot
+            </span>
+          </div>
+          <div className="relative mx-auto grid max-w-7xl gap-6 px-4 pb-16 pt-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+            {stats.map((stat) => (
+              <div key={stat.id} className="glass-card px-6 py-5 text-center">
+                <div className="font-heading mono text-4xl font-bold text-gold">{stat.stat_value}</div>
+                <div className="mt-2 text-sm text-muted">{stat.stat_label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {(settings.enable_bulk_pricing || settings.enable_subscriptions) && (
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

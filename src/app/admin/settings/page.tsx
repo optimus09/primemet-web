@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import SettingToggle from "./SettingToggle";
 import CategoryToggle from "./CategoryToggle";
 import ScrapRateEditor from "./ScrapRateEditor";
+import HomepageStatEditor from "./HomepageStatEditor";
 
 export default async function AdminSettingsPage() {
   const settings = await getSiteSettings();
@@ -12,6 +13,7 @@ export default async function AdminSettingsPage() {
   const { data: categoryRows } = await supabase.from("products").select("category").order("category");
   const categories = Array.from(new Set((categoryRows ?? []).map((r) => r.category)));
   const { data: rates } = await supabase.from("scrap_rates").select("*").order("material_name");
+  const { data: stats } = await supabase.from("homepage_stats").select("*").order("sort_order");
 
   return (
     <div>
@@ -53,6 +55,26 @@ export default async function AdminSettingsPage() {
           description="When on, new customers need one of your signup codes (generate them under Admins & Partners) to create an account. Keeps random signups out."
           initialValue={settings.require_signup_code}
         />
+        <SettingToggle
+          settingKey="show_stats"
+          label="Show the stats section on the homepage"
+          description="The 'Live operational snapshot' band with your plant/volume numbers. Turn off to hide it entirely."
+          initialValue={settings.show_stats}
+        />
+      </div>
+
+      <h2 className="mt-10 text-sm font-semibold uppercase tracking-wide text-gold">
+        Homepage stats
+      </h2>
+      <p className="mt-2 max-w-xl text-sm text-muted">
+        The three numbers shown in the homepage&apos;s &quot;Live operational snapshot&quot;
+        section. Edit them to reflect your real figures — these were placeholder text.
+      </p>
+      <div className="mt-4 flex max-w-2xl flex-col gap-3">
+        {(stats ?? []).map((stat) => (
+          <HomepageStatEditor key={stat.id} stat={stat} />
+        ))}
+        {(!stats || stats.length === 0) && <p className="text-sm text-muted">No stats set yet.</p>}
       </div>
 
       <h2 className="mt-10 text-sm font-semibold uppercase tracking-wide text-gold">

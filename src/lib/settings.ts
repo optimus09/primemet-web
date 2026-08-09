@@ -6,6 +6,7 @@ export type SiteSettings = {
   enable_bulk_pricing: boolean;
   enable_subscriptions: boolean;
   require_signup_code: boolean;
+  show_stats: boolean;
 };
 
 const DEFAULTS: SiteSettings = {
@@ -14,6 +15,7 @@ const DEFAULTS: SiteSettings = {
   enable_bulk_pricing: true,
   enable_subscriptions: true,
   require_signup_code: false,
+  show_stats: true,
 };
 
 export async function getSiteSettings(): Promise<SiteSettings> {

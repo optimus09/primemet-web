@@ -46,3 +46,21 @@ export async function updateScrapRate(
   revalidatePath("/", "layout");
   return {};
 }
+
+export async function updateHomepageStat(
+  statId: string,
+  value: string,
+  label: string
+): Promise<{ error?: string }> {
+  const supabase = await createClient();
+
+  const { error } = await supabase
+    .from("homepage_stats")
+    .update({ stat_value: value, stat_label: label, updated_at: new Date().toISOString() })
+    .eq("id", statId);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/", "layout");
+  return {};
+}
