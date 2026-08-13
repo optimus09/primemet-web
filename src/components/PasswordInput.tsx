@@ -5,6 +5,7 @@ import type { InputHTMLAttributes } from "react";
 
 export default function PasswordInput({
   className,
+  autoComplete,
   ...props
 }: InputHTMLAttributes<HTMLInputElement>) {
   const [visible, setVisible] = useState(false);
@@ -12,6 +13,10 @@ export default function PasswordInput({
   return (
     <div className="relative">
       <input
+        autoCapitalize="none"
+        autoCorrect="off"
+        spellCheck={false}
+        autoComplete={autoComplete ?? "current-password"}
         {...props}
         type={visible ? "text" : "password"}
         className={`${className ?? ""} pr-10`}

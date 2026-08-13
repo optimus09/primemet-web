@@ -32,6 +32,10 @@ export default async function LoginPage({
             name="email"
             type="email"
             required
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            autoComplete="email"
             className="mt-1 w-full rounded-md border border-card-border bg-surface px-3 py-2 text-foreground outline-none focus:border-teal-active"
           />
         </div>

@@ -73,6 +73,10 @@ export default async function SignupPage({
             name="email"
             type="email"
             required
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            autoComplete="email"
             className="mt-1 w-full rounded-md border border-card-border bg-surface px-3 py-2 text-foreground outline-none focus:border-teal-active"
           />
         </div>
@@ -83,6 +87,7 @@ export default async function SignupPage({
             name="password"
             required
             minLength={6}
+            autoComplete="new-password"
             className="mt-1 w-full rounded-md border border-card-border bg-surface px-3 py-2 text-foreground outline-none focus:border-teal-active"
           />
         </div>
