@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 
 export async function login(formData: FormData) {
@@ -16,6 +17,14 @@ export async function login(formData: FormData) {
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
+    const ua = (await headers()).get("user-agent");
+    console.log("[login-debug]", JSON.stringify({
+      emailJSON: JSON.stringify(email),
+      emailLength: email.length,
+      passwordLength: password.length,
+      supabaseError: error.message,
+      userAgent: ua,
+    }));
     redirect(`/login?error=${encodeURIComponent(error.message)}&redirect=${encodeURIComponent(redirectTo)}`);
   }
 
