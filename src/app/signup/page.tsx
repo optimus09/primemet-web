@@ -13,7 +13,17 @@ export default async function SignupPage({
   const settings = await getSiteSettings();
 
   return (
-    <div className="mx-auto flex max-w-md flex-col px-4 py-20 sm:px-6">
+    <div className="mx-auto grid max-w-5xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center">
+      <div className="relative hidden h-full min-h-[420px] overflow-hidden rounded-2xl lg:block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/photos/scrap-metal.jpg" alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0" />
+        <div className="absolute bottom-0 left-0 p-6">
+          <p className="text-lg font-semibold text-white">Join Primemet</p>
+          <p className="mt-1 text-sm text-white/70">Scrap procurement and spares supply, in one account.</p>
+        </div>
+      </div>
+      <div className="flex flex-col">
       <h1 className="text-2xl font-bold text-foreground">Create your account</h1>
       <p className="mt-2 text-sm text-muted">
         Sign up to order spares or request a scrap pickup.
@@ -105,6 +115,7 @@ export default async function SignupPage({
           Log in
         </Link>
       </p>
+      </div>
     </div>
   );
 }

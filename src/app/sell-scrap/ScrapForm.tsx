@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { submitScrapRequest } from "./actions";
 
-type Material = { id: string; name: string; description: string | null };
+type Material = { id: string; name: string; description: string | null; image_url?: string | null };
 
 export default function ScrapForm({
   materials,
@@ -78,13 +78,24 @@ export default function ScrapForm({
           {materials.map((material) => {
             const checked = material.name in selected;
             return (
-              <div key={material.id} className="glass-card flex items-center gap-3 p-4">
+              <div
+                key={material.id}
+                className={`glass-card flex items-center gap-3 overflow-hidden p-0 transition ${checked ? "border-teal-active" : ""}`}
+              >
+                {material.image_url && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={material.image_url}
+                    alt={material.name}
+                    className="h-16 w-16 shrink-0 object-cover"
+                  />
+                )}
                 <input
                   type="checkbox"
                   id={material.id}
                   checked={checked}
                   onChange={(e) => toggleMaterial(material.name, e.target.checked)}
-                  className="h-4 w-4 accent-emerald-highlight"
+                  className="h-4 w-4 shrink-0 accent-emerald-highlight"
                 />
                 <label htmlFor={material.id} className="flex-1 text-sm text-foreground">
                   {material.name}
@@ -96,7 +107,7 @@ export default function ScrapForm({
                     placeholder="kg"
                     value={selected[material.name]}
                     onChange={(e) => setWeight(material.name, e.target.value)}
-                    className="w-20 rounded-md border border-card-border bg-surface px-2 py-1 text-sm text-foreground"
+                    className="mr-4 w-20 rounded-md border border-card-border bg-surface px-2 py-1 text-sm text-foreground"
                   />
                 )}
               </div>

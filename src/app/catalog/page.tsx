@@ -33,7 +33,13 @@ export default async function CatalogPage({
   const settings = await getSiteSettings();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div>
+      <div className="relative h-32 w-full overflow-hidden sm:h-40">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/photos/products/grinding-machine.jpg" alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-black/30" />
+      </div>
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-foreground">Order Spare Parts &amp; Consumables</h1>
       <p className="mt-2 max-w-2xl text-muted">
         Welding rods, industrial hardware and machine spares — add what you need to your cart
@@ -65,6 +71,7 @@ export default async function CatalogPage({
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }
