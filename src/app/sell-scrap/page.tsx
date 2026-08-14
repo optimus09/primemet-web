@@ -12,7 +12,7 @@ export default async function SellScrapPage() {
 
   return (
     <div>
-      <div className="relative h-56 w-full overflow-hidden sm:h-72">
+      <div className="relative h-32 w-full overflow-hidden sm:h-40">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/photos/scrap-yard.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-black/30" />

@@ -230,7 +230,7 @@ export default async function Home() {
           Scrap lifted, spares supplied, lots dispatched — this is the work behind the numbers.
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-2 md:grid-rows-2">
-          <div className="group relative h-72 overflow-hidden rounded-xl md:row-span-2 md:h-full">
+          <div className="group relative h-52 overflow-hidden rounded-xl md:row-span-2 md:h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/photos/scrap-metal.jpg"
@@ -243,7 +243,7 @@ export default async function Home() {
               <p className="mt-1 text-lg font-semibold text-white">Graded, weighed, lifted on schedule</p>
             </div>
           </div>
-          <div className="group relative h-56 overflow-hidden rounded-xl">
+          <div className="group relative h-40 overflow-hidden rounded-xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/photos/welding.jpg"
@@ -257,7 +257,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="group relative h-56 overflow-hidden rounded-xl">
+            <div className="group relative h-40 overflow-hidden rounded-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/photos/spares.jpg"
@@ -269,7 +269,7 @@ export default async function Home() {
                 <p className="text-sm font-semibold text-white">Machine spares</p>
               </div>
             </div>
-            <div className="group relative h-56 overflow-hidden rounded-xl">
+            <div className="group relative h-40 overflow-hidden rounded-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/photos/logistics.jpg"

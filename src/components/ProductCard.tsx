@@ -12,6 +12,7 @@ type Product = {
   unit_price: number;
   unit: string;
   stock_quantity: number;
+  image_url?: string | null;
 };
 
 export default function ProductCard({ product, showPrice = true }: { product: Product; showPrice?: boolean }) {
@@ -31,8 +32,13 @@ export default function ProductCard({ product, showPrice = true }: { product: Pr
 
   return (
     <div className="glass-card flex flex-col overflow-hidden transition hover:border-teal-active">
-      <div className="flex aspect-[4/3] items-center justify-center border-b border-card-border bg-surface">
-        <CategoryIcon category={product.category} className="h-16 w-16 text-teal-active/70" />
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-card-border bg-surface">
+        {product.image_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={product.image_url} alt={product.name} className="h-full w-full object-cover" />
+        ) : (
+          <CategoryIcon category={product.category} className="h-16 w-16 text-teal-active/70" />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-5">
         <span className="mono text-xs text-muted">{product.category}</span>
