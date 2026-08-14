@@ -11,7 +11,13 @@ export default async function SellScrapPage() {
     : { data: null };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <div>
+      <div className="relative h-56 w-full overflow-hidden sm:h-72">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/photos/scrap-yard.jpg" alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-black/30" />
+      </div>
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <h1 className="text-3xl font-bold text-foreground">Sell Your Industrial Scrap</h1>
       <p className="mt-2 text-muted">
         Tell us what you have, how much, and where to collect it — we&apos;ll confirm grading,
@@ -46,6 +52,7 @@ export default async function SellScrapPage() {
       )}
 
       <ScrapForm materials={materials ?? []} enableSubscriptions={settings.enable_subscriptions} />
+      </div>
     </div>
   );
 }

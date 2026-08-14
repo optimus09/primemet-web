@@ -224,6 +224,67 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">On the ground, every day</h2>
+        <p className="mt-3 max-w-2xl text-muted">
+          Scrap lifted, spares supplied, lots dispatched — this is the work behind the numbers.
+        </p>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 md:grid-rows-2">
+          <div className="group relative h-72 overflow-hidden rounded-xl md:row-span-2 md:h-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photos/scrap-metal.jpg"
+              alt="Crane grab lifting baled metal scrap"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+            <div className="absolute bottom-0 left-0 p-5">
+              <span className="mono text-[10px] uppercase tracking-widest text-white/70">Scrap Procurement</span>
+              <p className="mt-1 text-lg font-semibold text-white">Graded, weighed, lifted on schedule</p>
+            </div>
+          </div>
+          <div className="group relative h-56 overflow-hidden rounded-xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photos/welding.jpg"
+              alt="Welding sparks on a steel structure"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+            <div className="absolute bottom-0 left-0 p-5">
+              <span className="mono text-[10px] uppercase tracking-widest text-white/70">Consumables</span>
+              <p className="mt-1 text-lg font-semibold text-white">Welding rods that keep lines running</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="group relative h-56 overflow-hidden rounded-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/photos/spares.jpg"
+                alt="Spanners and machine spares arranged in a circle"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+              <div className="absolute bottom-0 left-0 p-4">
+                <p className="text-sm font-semibold text-white">Machine spares</p>
+              </div>
+            </div>
+            <div className="group relative h-56 overflow-hidden rounded-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/photos/logistics.jpg"
+                alt="Aerial view of a cargo port"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+              <div className="absolute bottom-0 left-0 p-4">
+                <p className="text-sm font-semibold text-white">Pan-India logistics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {settings.show_stats && stats && stats.length > 0 && (
         <section className="dot-grid relative border-y border-card-border bg-surface">
           <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
