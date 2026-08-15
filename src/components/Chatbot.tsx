@@ -41,9 +41,9 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
           <div className="flex items-center gap-2 border-b border-card-border bg-surface px-4 py-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/apple-touch-icon.png"
+              src="/primemet-logo-icon.png"
               alt=""
-              className="h-7 w-7 rounded-full border border-card-border"
+              className="h-8 w-8 object-contain"
             />
             <span className="flex-1 text-sm font-semibold text-foreground">Mate AI</span>
             <button
@@ -121,7 +121,7 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
           </span>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src="/apple-touch-icon.png" alt="Mate AI" className="h-16 w-16 rounded-full" />
+          <img src="/primemet-logo-icon.png" alt="Mate AI" className="h-16 w-16 object-contain drop-shadow-md" />
         )}
       </button>
     </div>

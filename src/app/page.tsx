@@ -214,8 +214,9 @@ export default async function Home() {
               <p className="mt-3 text-sm text-muted">{service.description}</p>
               <ul className="mt-4 space-y-1.5">
                 {service.points.map((point) => (
-                  <li key={point} className="mono text-xs text-emerald-highlight">
-                    /{point}
+                  <li key={point} className="mono flex items-start gap-2 text-xs text-emerald-highlight">
+                    <span className="text-sm leading-none" aria-hidden="true">✦</span>
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>
