@@ -187,12 +187,12 @@ export default async function Home() {
                     <g className="orbit">
                       {orbitItems.map(({ stat, x, y }) => (
                         <g key={stat.id} className="orbit-counter" style={{ transformOrigin: `${x}px ${y}px` }}>
-                          <foreignObject x={x - 58} y={y - 30} width="116" height="60">
-                            <div className="glass-card flex h-full flex-col items-center justify-center px-2 text-center">
+                          <foreignObject x={x - 62} y={y - 38} width="124" height="76">
+                            <div className="glass-card flex h-full flex-col items-center justify-center overflow-visible px-2 py-1 text-center">
                               <div className="font-heading mono text-lg font-bold leading-tight text-gold">
                                 {stat.stat_value}
                               </div>
-                              <div className="mt-0.5 text-[10px] leading-tight text-muted">{stat.stat_label}</div>
+                              <div className="mt-1 text-[10px] leading-snug text-muted">{stat.stat_label}</div>
                             </div>
                           </foreignObject>
                         </g>
@@ -207,8 +207,8 @@ export default async function Home() {
                     </g>
                   )}
 
-                  <foreignObject x="120" y="150" width="160" height="100">
-                    <div className="flex h-full flex-col items-center justify-center text-center">
+                  <foreignObject x="100" y="125" width="200" height="150">
+                    <div className="flex h-full flex-col items-center justify-center overflow-visible text-center">
                       {centerStat ? (
                         <>
                           <span className="mono inline-flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-muted">
@@ -218,7 +218,9 @@ export default async function Home() {
                           <div className="mt-2 font-heading mono text-3xl font-bold leading-tight text-gold">
                             {centerStat.stat_value}
                           </div>
-                          <div className="mt-1 text-xs text-muted">{centerStat.stat_label}</div>
+                          <div className="mt-1 max-w-[170px] text-xs leading-snug text-muted">
+                            {centerStat.stat_label}
+                          </div>
                         </>
                       ) : (
                         <span className="h-3 w-3 rounded-full bg-emerald-highlight" />
