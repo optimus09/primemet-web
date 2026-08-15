@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getSiteSettings } from "@/lib/settings";
+import { notifyAdmin } from "@/lib/notify";
 
 export async function signup(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim();
@@ -47,6 +48,15 @@ export async function signup(formData: FormData) {
       .from("profiles")
       .update({ company_name: companyName, contact_name: contactName, phone })
       .eq("id", data.user.id);
+
+    await notifyAdmin(
+      "New customer signup — Primemet",
+      `<p><strong>New account created</strong></p>
+       <p>Company: ${companyName || "—"}<br/>
+       Contact: ${contactName || "—"}<br/>
+       Phone: ${phone || "—"}<br/>
+       Email: ${email}</p>`
+    );
   }
 
   redirect(redirectTo);

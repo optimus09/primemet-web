@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { isCustomerBlocked } from "@/lib/checkBlocked";
+import { notifyAdmin } from "@/lib/notify";
 
 type CheckoutItem = {
   productId: string;
@@ -60,6 +61,15 @@ export async function checkout(items: CheckoutItem[], notes: string) {
   if (itemsError) {
     return { success: false, error: itemsError.message };
   }
+
+  const itemsList = items.map((i) => `${i.name} × ${i.quantity} ${i.unit}`).join("<br/>");
+  await notifyAdmin(
+    "New spare parts order — Primemet",
+    `<p><strong>New order placed</strong></p>
+     <p>Total: ₹${totalAmount.toLocaleString("en-IN")}</p>
+     <p>${itemsList}</p>
+     ${notes ? `<p>Notes: ${notes}</p>` : ""}`
+  );
 
   return { success: true, orderId: order.id as string };
 }

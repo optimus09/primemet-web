@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { isCustomerBlocked } from "@/lib/checkBlocked";
+import { notifyAdmin } from "@/lib/notify";
 
 type ScrapItem = {
   materialName: string;
@@ -69,6 +70,16 @@ export async function submitScrapRequest(input: {
   if (itemsError) {
     return { success: false, error: itemsError.message };
   }
+
+  const itemsList = input.items.map((i) => `${i.materialName}: ~${i.estimatedWeight} kg`).join("<br/>");
+  await notifyAdmin(
+    "New scrap sell request — Primemet",
+    `<p><strong>New scrap pickup request</strong></p>
+     <p>Location: ${input.plantLocation}</p>
+     <p>${itemsList}</p>
+     ${input.isSubscription ? `<p>Subscription: ${input.subscriptionFrequency}</p>` : ""}
+     ${input.notes ? `<p>Notes: ${input.notes}</p>` : ""}`
+  );
 
   return { success: true, orderId: order.id as string };
 }

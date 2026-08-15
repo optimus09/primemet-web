@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { isCustomerBlocked } from "@/lib/checkBlocked";
+import { notifyAdmin } from "@/lib/notify";
 
 type BulkItem = {
   productId: string;
@@ -62,6 +63,15 @@ export async function submitBulkQuoteRequest(input: {
   if (itemsError) {
     return { success: false, error: itemsError.message };
   }
+
+  const itemsList = input.items.map((i) => `${i.name} × ${i.quantity}`).join("<br/>");
+  await notifyAdmin(
+    "New bulk pricing request — Primemet",
+    `<p><strong>New bulk quote request</strong></p>
+     <p>${itemsList}</p>
+     ${input.isSubscription ? `<p>Subscription: ${input.subscriptionFrequency}</p>` : ""}
+     ${input.notes ? `<p>Notes: ${input.notes}</p>` : ""}`
+  );
 
   return { success: true, orderId: order.id as string };
 }
