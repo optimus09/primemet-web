@@ -38,8 +38,14 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
     <div className="fixed bottom-5 right-5 z-50">
       {open && (
         <div className="glass-card mb-3 flex h-[28rem] w-80 flex-col overflow-hidden shadow-xl sm:w-96">
-          <div className="flex items-center justify-between border-b border-card-border bg-surface px-4 py-3">
-            <span className="text-sm font-semibold text-foreground">Primemet Assistant</span>
+          <div className="flex items-center gap-2 border-b border-card-border bg-surface px-4 py-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/apple-touch-icon.png"
+              alt=""
+              className="h-7 w-7 rounded-full border border-card-border"
+            />
+            <span className="flex-1 text-sm font-semibold text-foreground">Mate AI</span>
             <button
               onClick={() => setOpen(false)}
               aria-label="Close chat"
@@ -52,8 +58,9 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3">
             {messages.length === 0 && (
               <p className="text-sm text-muted">
-                Hi! Ask me about how Primemet works — selling scrap, ordering spares, bulk
-                pricing, or anything else.
+                Hi, I&apos;m Mate AI 👋 Ask me anything about Primemet — what we do, the
+                services we offer, selling scrap, ordering spares, bulk pricing, or how to
+                get in touch.
               </p>
             )}
             <div className="flex flex-col gap-3">
@@ -103,7 +110,7 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close chat" : "Open chat"}
+        aria-label={open ? "Close Mate AI" : "Open Mate AI"}
         className="flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-teal-active text-white shadow-lg transition hover:bg-emerald-deep"
       >
         {open ? (
@@ -111,13 +118,8 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
             <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
           </svg>
         ) : (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
-            <path
-              d="M4 4h16v12H8l-4 4V4z"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src="/apple-touch-icon.png" alt="Mate AI" className="h-9 w-9 rounded-full" />
         )}
       </button>
     </div>
