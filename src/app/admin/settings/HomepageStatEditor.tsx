@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { updateHomepageStat } from "./actions";
+import { updateHomepageStat, deleteHomepageStat } from "./actions";
 
 type Stat = { id: string; stat_value: string; stat_label: string };
 
@@ -10,6 +10,7 @@ export default function HomepageStatEditor({ stat }: { stat: Stat }) {
   const [label, setLabel] = useState(stat.stat_label);
   const [status, setStatus] = useState<"idle" | "saved" | "error">("idle");
   const [isPending, startTransition] = useTransition();
+  const [isDeleting, startDeleting] = useTransition();
 
   const handleSave = () => {
     setStatus("idle");
@@ -21,6 +22,13 @@ export default function HomepageStatEditor({ stat }: { stat: Stat }) {
       }
       setStatus("saved");
       setTimeout(() => setStatus("idle"), 2000);
+    });
+  };
+
+  const handleDelete = () => {
+    if (!confirm("Remove this stat from the homepage?")) return;
+    startDeleting(async () => {
+      await deleteHomepageStat(stat.id);
     });
   };
 
@@ -51,6 +59,13 @@ export default function HomepageStatEditor({ stat }: { stat: Stat }) {
       </button>
       {status === "saved" && <span className="text-xs font-medium text-emerald-highlight">Saved ✓</span>}
       {status === "error" && <span className="text-xs font-medium text-red-700">Couldn&apos;t save</span>}
+      <button
+        onClick={handleDelete}
+        disabled={isDeleting}
+        className="text-xs font-medium text-red-700 hover:underline disabled:opacity-60"
+      >
+        {isDeleting ? "Removing..." : "Remove"}
+      </button>
     </div>
   );
 }

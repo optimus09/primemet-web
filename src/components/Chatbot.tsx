@@ -3,6 +3,13 @@
 import { useState, useRef, useEffect, useTransition } from "react";
 import { sendChatMessage, type ChatMessage } from "@/app/chat/actions";
 
+const SUGGESTED_QUESTIONS = [
+  "What services do you offer?",
+  "How do I sell my scrap?",
+  "How do I order spare parts?",
+  "How can I contact Primemet?",
+];
+
 export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -16,8 +23,8 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
 
   if (!enabled) return null;
 
-  const handleSend = () => {
-    const text = input.trim();
+  const handleSend = (preset?: string) => {
+    const text = (preset ?? input).trim();
     if (!text || isSending) return;
 
     const nextMessages: ChatMessage[] = [...messages, { role: "user", text }];
@@ -57,11 +64,25 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3">
             {messages.length === 0 && (
-              <p className="text-sm text-muted">
-                Hi, I&apos;m Mate AI 👋 Ask me anything about Primemet — what we do, the
-                services we offer, selling scrap, ordering spares, bulk pricing, or how to
-                get in touch.
-              </p>
+              <div>
+                <p className="text-sm text-muted">
+                  Hi, I&apos;m Mate AI 👋 Ask me anything about Primemet — what we do, the
+                  services we offer, selling scrap, ordering spares, bulk pricing, or how to
+                  get in touch.
+                </p>
+                <div className="mt-3 flex flex-col gap-2">
+                  {SUGGESTED_QUESTIONS.map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => handleSend(q)}
+                      disabled={isSending}
+                      className="rounded-md border border-card-border bg-surface px-3 py-2 text-left text-xs text-foreground transition hover:border-teal-active hover:text-teal-active disabled:opacity-60"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </div>
             )}
             <div className="flex flex-col gap-3">
               {messages.map((m, i) => (
@@ -98,7 +119,7 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
               className="flex-1 rounded-md border border-card-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-teal-active"
             />
             <button
-              onClick={handleSend}
+              onClick={() => handleSend()}
               disabled={isSending || !input.trim()}
               className="rounded-md border border-gold bg-teal-active px-3 py-2 text-sm font-semibold text-white transition hover:bg-emerald-deep disabled:opacity-60"
             >

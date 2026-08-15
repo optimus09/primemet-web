@@ -100,7 +100,8 @@ const processSteps = [
 export default async function Home() {
   const settings = await getSiteSettings();
   const supabase = await createClient();
-  const { data: stats } = await supabase.from("homepage_stats").select("*").order("sort_order");
+  const { data: rawStats } = await supabase.from("homepage_stats").select("*").order("sort_order");
+  const stats = (rawStats ?? []).filter((s) => s.stat_value?.trim() && s.stat_label?.trim());
   return (
     <div>
       <section className="relative overflow-hidden border-b border-card-border">
@@ -147,35 +148,86 @@ export default async function Home() {
                 </Link>
               </div>
             )}
+            {settings.show_stats && stats && stats.length > 0 && (
+              <div className="mt-10 flex flex-wrap gap-8 border-t border-card-border pt-6 lg:hidden">
+                {stats.map((stat) => (
+                  <div key={stat.id}>
+                    <div className="font-heading mono text-2xl font-bold text-gold">{stat.stat_value}</div>
+                    <div className="mt-1 text-xs text-muted">{stat.stat_label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="relative mx-auto hidden aspect-square w-full max-w-md lg:block">
-            <svg viewBox="0 0 400 400" className="h-full w-full">
-              <circle cx="200" cy="200" r="170" fill="none" stroke="var(--card-border)" strokeWidth="1.5" />
-              <circle cx="200" cy="200" r="130" fill="none" stroke="var(--card-border)" strokeWidth="1.5" strokeDasharray="4 6" />
-              <g transform="translate(200,200)">
-                <path
-                  d="M0 -90 L18 -60 L-18 -60 Z M0 90 L18 60 L-18 60 Z M-90 0 L-60 18 L-60 -18 Z M90 0 L60 18 L60 -18 Z"
-                  fill="var(--emerald-highlight)"
-                  opacity="0.25"
-                />
-                <circle r="62" fill="none" stroke="var(--teal-active)" strokeWidth="3" />
-                <circle r="40" fill="none" stroke="var(--gold)" strokeWidth="2" />
-                <circle r="8" fill="var(--emerald-highlight)" />
-                <g stroke="var(--teal-active)" strokeWidth="3" strokeLinecap="round">
-                  <line x1="0" y1="-62" x2="0" y2="-78" />
-                  <line x1="0" y1="62" x2="0" y2="78" />
-                  <line x1="-62" y1="0" x2="-78" y2="0" />
-                  <line x1="62" y1="0" x2="78" y2="0" />
-                  <line x1="-44" y1="-44" x2="-55" y2="-55" />
-                  <line x1="44" y1="-44" x2="55" y2="-55" />
-                  <line x1="-44" y1="44" x2="-55" y2="55" />
-                  <line x1="44" y1="44" x2="55" y2="55" />
-                </g>
-              </g>
-              <rect x="60" y="300" width="60" height="40" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
-              <rect x="280" y="60" width="50" height="34" rx="4" fill="none" stroke="var(--charcoal)" strokeWidth="2" />
-            </svg>
+            {(() => {
+              const showStats = settings.show_stats && stats && stats.length > 0;
+              const centerStat = showStats ? stats[0] : null;
+              const orbitStats = showStats ? stats.slice(1, 5) : [];
+              const orbitRadius = 155;
+              const orbitItems = orbitStats.map((stat, i) => {
+                const angleDeg = -90 + i * (360 / orbitStats.length);
+                const angleRad = (angleDeg * Math.PI) / 180;
+                return {
+                  stat,
+                  x: 200 + orbitRadius * Math.cos(angleRad),
+                  y: 200 + orbitRadius * Math.sin(angleRad),
+                };
+              });
+
+              return (
+                <svg viewBox="0 0 400 400" className="h-full w-full overflow-visible">
+                  <circle cx="200" cy="200" r="170" fill="none" stroke="var(--card-border)" strokeWidth="1.5" />
+                  <g className="spin-slow-reverse">
+                    <circle cx="200" cy="200" r="130" fill="none" stroke="var(--card-border)" strokeWidth="1.5" strokeDasharray="4 6" />
+                  </g>
+
+                  {orbitItems.length > 0 ? (
+                    <g className="orbit">
+                      {orbitItems.map(({ stat, x, y }) => (
+                        <g key={stat.id} className="orbit-counter" style={{ transformOrigin: `${x}px ${y}px` }}>
+                          <foreignObject x={x - 58} y={y - 30} width="116" height="60">
+                            <div className="glass-card flex h-full flex-col items-center justify-center px-2 text-center">
+                              <div className="font-heading mono text-lg font-bold leading-tight text-gold">
+                                {stat.stat_value}
+                              </div>
+                              <div className="mt-0.5 text-[10px] leading-tight text-muted">{stat.stat_label}</div>
+                            </div>
+                          </foreignObject>
+                        </g>
+                      ))}
+                    </g>
+                  ) : (
+                    <g className="spin-slow" stroke="var(--teal-active)" strokeWidth="3" strokeLinecap="round" opacity="0.5">
+                      <line x1="200" y1="38" x2="200" y2="22" />
+                      <line x1="200" y1="362" x2="200" y2="378" />
+                      <line x1="38" y1="200" x2="22" y2="200" />
+                      <line x1="362" y1="200" x2="378" y2="200" />
+                    </g>
+                  )}
+
+                  <foreignObject x="120" y="150" width="160" height="100">
+                    <div className="flex h-full flex-col items-center justify-center text-center">
+                      {centerStat ? (
+                        <>
+                          <span className="mono inline-flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-muted">
+                            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
+                            Live snapshot
+                          </span>
+                          <div className="mt-2 font-heading mono text-3xl font-bold leading-tight text-gold">
+                            {centerStat.stat_value}
+                          </div>
+                          <div className="mt-1 text-xs text-muted">{centerStat.stat_label}</div>
+                        </>
+                      ) : (
+                        <span className="h-3 w-3 rounded-full bg-emerald-highlight" />
+                      )}
+                    </div>
+                  </foreignObject>
+                </svg>
+              );
+            })()}
           </div>
         </div>
       </section>
@@ -285,25 +337,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      {settings.show_stats && stats && stats.length > 0 && (
-        <section className="dot-grid relative border-y border-card-border bg-surface">
-          <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
-            <span className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted">
-              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-highlight" />
-              Live operational snapshot
-            </span>
-          </div>
-          <div className="relative mx-auto grid max-w-7xl gap-6 px-4 pb-16 pt-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-            {stats.map((stat) => (
-              <div key={stat.id} className="glass-card px-6 py-5 text-center">
-                <div className="font-heading mono text-4xl font-bold text-gold">{stat.stat_value}</div>
-                <div className="mt-2 text-sm text-muted">{stat.stat_label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       {(settings.enable_bulk_pricing || settings.enable_subscriptions) && (
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

@@ -4,6 +4,7 @@ import SettingToggle from "./SettingToggle";
 import CategoryToggle from "./CategoryToggle";
 import ScrapRateEditor from "./ScrapRateEditor";
 import HomepageStatEditor from "./HomepageStatEditor";
+import AddHomepageStatButton from "./AddHomepageStatButton";
 
 export default async function AdminSettingsPage() {
   const settings = await getSiteSettings();
@@ -73,14 +74,15 @@ export default async function AdminSettingsPage() {
         Homepage stats
       </h2>
       <p className="mt-2 max-w-xl text-sm text-muted">
-        The three numbers shown in the homepage&apos;s &quot;Live operational snapshot&quot;
-        section. Edit them to reflect your real figures — these were placeholder text.
+        The numbers shown in the hero graphic on the homepage — the first stat sits in the
+        centre, and up to four more orbit around it. Add up to 5 in total.
       </p>
       <div className="mt-4 flex max-w-2xl flex-col gap-3">
         {(stats ?? []).map((stat) => (
           <HomepageStatEditor key={stat.id} stat={stat} />
         ))}
         {(!stats || stats.length === 0) && <p className="text-sm text-muted">No stats set yet.</p>}
+        <AddHomepageStatButton disabled={(stats?.length ?? 0) >= 5} />
       </div>
 
       <h2 className="mt-10 text-sm font-semibold uppercase tracking-wide text-gold">
