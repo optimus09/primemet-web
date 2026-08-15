@@ -111,15 +111,17 @@ export default function Chatbot({ enabled = true }: { enabled?: boolean }) {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close Mate AI" : "Open Mate AI"}
-        className="flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-teal-active text-white shadow-lg transition hover:bg-emerald-deep"
+        className="flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition hover:scale-105"
       >
         {open ? (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
-            <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-          </svg>
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-active text-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          </span>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src="/apple-touch-icon.png" alt="Mate AI" className="h-9 w-9 rounded-full" />
+          <img src="/apple-touch-icon.png" alt="Mate AI" className="h-16 w-16 rounded-full" />
         )}
       </button>
     </div>
