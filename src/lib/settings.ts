@@ -7,6 +7,7 @@ export type SiteSettings = {
   enable_subscriptions: boolean;
   require_signup_code: boolean;
   show_stats: boolean;
+  enable_ai_features: boolean;
 };
 
 const DEFAULTS: SiteSettings = {
@@ -16,6 +17,7 @@ const DEFAULTS: SiteSettings = {
   enable_subscriptions: true,
   require_signup_code: false,
   show_stats: true,
+  enable_ai_features: true,
 };
 
 export async function getSiteSettings(): Promise<SiteSettings> {

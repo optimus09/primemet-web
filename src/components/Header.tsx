@@ -7,7 +7,13 @@ import { createClient } from "@/lib/supabase/client";
 import { useCart } from "@/lib/cart";
 import type { User } from "@supabase/supabase-js";
 
-export default function Header({ enableBulkPricing = true }: { enableBulkPricing?: boolean }) {
+export default function Header({
+  enableBulkPricing = true,
+  enableAiFeatures = true,
+}: {
+  enableBulkPricing?: boolean;
+  enableAiFeatures?: boolean;
+}) {
   const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -54,6 +60,7 @@ export default function Header({ enableBulkPricing = true }: { enableBulkPricing
     { href: "/catalog", label: "Order Spare Parts" },
     { href: "/sell-scrap", label: "Sell Your Scrap" },
     ...(enableBulkPricing ? [{ href: "/bulk-quote", label: "Bulk Pricing" }] : []),
+    ...(enableAiFeatures ? [{ href: "/ai-quote", label: "AI Quote" }] : []),
   ];
 
   return (

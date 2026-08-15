@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 import { CartProvider } from "@/lib/cart";
 import { getSiteSettings } from "@/lib/settings";
 
@@ -25,9 +26,10 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <CartProvider>
-          <Header enableBulkPricing={settings.enable_bulk_pricing} />
+          <Header enableBulkPricing={settings.enable_bulk_pricing} enableAiFeatures={settings.enable_ai_features} />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Chatbot enabled={settings.enable_ai_features} />
         </CartProvider>
       </body>
     </html>

@@ -61,6 +61,12 @@ export default async function AdminSettingsPage() {
           description="The 'Live operational snapshot' band with your plant/volume numbers. Turn off to hide it entirely."
           initialValue={settings.show_stats}
         />
+        <SettingToggle
+          settingKey="enable_ai_features"
+          label="Enable AI Quote (drawing/BOM upload)"
+          description="When off, the AI Quote nav link and page are hidden, and the underlying AI feature stops accepting requests — useful if you want to pause AI usage/cost."
+          initialValue={settings.enable_ai_features}
+        />
       </div>
 
       <h2 className="mt-10 text-sm font-semibold uppercase tracking-wide text-gold">
