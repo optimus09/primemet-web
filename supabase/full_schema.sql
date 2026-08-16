@@ -114,7 +114,8 @@ create table if not exists public.scrap_materials (
   id uuid primary key default gen_random_uuid(),
   name text not null,
   description text,
-  is_active boolean not null default true
+  is_active boolean not null default true,
+  image_url text
 );
 
 alter table public.scrap_materials enable row level security;
@@ -231,8 +232,32 @@ insert into public.site_settings (key, value) values
   ('show_scrap_rates', true),
   ('enable_bulk_pricing', true),
   ('enable_subscriptions', true),
-  ('require_signup_code', false)
+  ('require_signup_code', false),
+  ('show_stats', true),
+  ('enable_ai_features', true)
 on conflict (key) do nothing;
+
+-- ---------- 8b. HOMEPAGE STATS (hero circle: 1 centre + up to 4 orbiting) ----------
+create table if not exists public.homepage_stats (
+  id uuid primary key default gen_random_uuid(),
+  stat_value text not null,
+  stat_label text not null,
+  sort_order integer not null default 0,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.homepage_stats enable row level security;
+
+drop policy if exists "Anyone can view homepage stats" on public.homepage_stats;
+create policy "Anyone can view homepage stats" on public.homepage_stats for select using (true);
+
+drop policy if exists "Admins can manage homepage stats" on public.homepage_stats;
+create policy "Admins can manage homepage stats" on public.homepage_stats for all using (public.is_admin()) with check (public.is_admin());
+
+insert into public.homepage_stats (stat_value, stat_label, sort_order) values
+  ('12,000 MT', 'Scrap handled every month', 1),
+  ('98%', 'On-time lot lifting', 2)
+on conflict do nothing;
 
 -- ---------- 9. CATEGORY VISIBILITY TOGGLES ----------
 create table if not exists public.category_settings (
